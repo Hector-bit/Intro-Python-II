@@ -37,46 +37,29 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-Player1 = Player('Sir Macho Madness', 'outside')
+player1 = Player(input("What is your name? "), room['outside'])
 # Write a loop that:
+print(f"Hello, {player1.name}")
 
 # def adventure_game():
-while True:
-    print(f'{Player1.room}')
-
 # * Prints the current room name
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
-
-direction = input('Choose a direction to go: ')
-print(direction, 'this is the users input')
 
 # If the user enters a cardinal direction, attempt to move to the room there.
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
 
-def move(self, direction):
-    if direction == "n":
-        if self.location.n_to != None:
-           self.location = self.location.n_to
-        else:
-            print("You can't go there")
-    elif direction == "e":
-        if self.location.n_to != None:
-           self.location = self.location.n_to
-        else:
-            print("You can't go there")
-    elif direction == "s":
-        if self.location.n_to != None:
-           self.location = self.location.n_to
-        else:
-            print("You can't go there")
-    elif direction == "w":
-        if self.location.n_to != None:
-           self.location = self.location.n_to
-        else:
-            print("You can't go there")
-    elif direction == "q":
+print(player1.current_room)
+
+while True:
+    cmd = input("--> ").lower()
+    if cmd in ["n", "e", "s", "w"]:
+        player1.move(cmd)
+    elif cmd == "q":
+        print("goodbye")
         exit()
+    else:
+        print("I did not understand that command")
 

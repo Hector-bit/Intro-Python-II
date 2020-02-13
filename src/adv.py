@@ -36,7 +36,6 @@ room['foyer'].item = 'Pocket Watch'
 room['overlook'].item = None
 room['narrow'].item = None
 room['treasure'].item = None
-
 #
 # Main
 #
@@ -60,9 +59,17 @@ print(player1.current_room)
 
 while True:
     cmd = input("--> ").lower()
-    if cmd in ["move"]:
+    # if cmd in ["look", "search"]:
+    #     player1.look(player1.current_room)
+    if cmd == "move":
         direction = input('Which direction would you like to go? ')
         player1.move(direction)
+    elif cmd in ["items", "inventory"]:
+        player1.inventory_check()
+    elif cmd in ["look", "search"]:
+        player1.look(player1.current_room)
+    elif cmd == "pick up":
+        player1.pick_up_item(player1.current_room)
     elif cmd == "q":
         print("goodbye")
         exit()

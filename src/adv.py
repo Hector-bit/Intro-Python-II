@@ -22,7 +22,6 @@ chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
 # Link rooms together
-
 room['outside'].n_to = room['foyer']
 room['foyer'].s_to = room['outside']
 room['foyer'].n_to = room['overlook']
@@ -31,6 +30,12 @@ room['overlook'].s_to = room['foyer']
 room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
+# room item
+room['outside'].item = None
+room['foyer'].item = 'Pocket Watch'
+room['overlook'].item = None
+room['narrow'].item = None
+room['treasure'].item = None
 
 #
 # Main
@@ -55,8 +60,9 @@ print(player1.current_room)
 
 while True:
     cmd = input("--> ").lower()
-    if cmd in ["n", "e", "s", "w"]:
-        player1.move(cmd)
+    if cmd in ["move"]:
+        direction = input('Which direction would you like to go? ')
+        player1.move(direction)
     elif cmd == "q":
         print("goodbye")
         exit()

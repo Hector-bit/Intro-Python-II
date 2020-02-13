@@ -11,3 +11,7 @@ class Player:
             print(self.current_room)
         else:
             print("You can't move in that direction")
+    #pick up item will need to know which room it is in
+    #order to see if there is an item available to pick up
+    def pick_up_item(self, room):
+        print('nothing here yet')

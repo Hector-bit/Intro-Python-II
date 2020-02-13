@@ -1,10 +1,11 @@
 from room import Room
+from player import Player
 
 # Declare all the rooms
 
 room = {
     'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mount beckons"),
+"North of you, the cave mount beckons"),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
 passages run north and east."""),
@@ -20,8 +21,6 @@ to north. The smell of gold permeates the air."""),
 chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
-
-
 # Link rooms together
 
 room['outside'].n_to = room['foyer']
@@ -38,14 +37,46 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-
+Player1 = Player('Sir Macho Madness', 'outside')
 # Write a loop that:
-#
+
+# def adventure_game():
+while True:
+    print(f'{Player1.room}')
+
 # * Prints the current room name
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
-#
+
+direction = input('Choose a direction to go: ')
+print(direction, 'this is the users input')
+
 # If the user enters a cardinal direction, attempt to move to the room there.
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+def move(self, direction):
+    if direction == "n":
+        if self.location.n_to != None:
+           self.location = self.location.n_to
+        else:
+            print("You can't go there")
+    elif direction == "e":
+        if self.location.n_to != None:
+           self.location = self.location.n_to
+        else:
+            print("You can't go there")
+    elif direction == "s":
+        if self.location.n_to != None:
+           self.location = self.location.n_to
+        else:
+            print("You can't go there")
+    elif direction == "w":
+        if self.location.n_to != None:
+           self.location = self.location.n_to
+        else:
+            print("You can't go there")
+    elif direction == "q":
+        exit()
+

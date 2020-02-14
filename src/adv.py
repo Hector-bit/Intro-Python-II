@@ -70,6 +70,8 @@ while True:
         player1.look(player1.current_room)
     elif cmd == "pick up":
         player1.pick_up_item(player1.current_room)
+    elif cmd == "drop":
+        player1.drop_item(player1.current_room)
     elif cmd == "q":
         print("goodbye")
         exit()

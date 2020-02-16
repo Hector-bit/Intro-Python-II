@@ -28,7 +28,7 @@ class Player:
     #order to see if there is an item available to pick up
     def pick_up_item(self, room):
         picking_up = input("What item would you like to pick up? ")
-        if picking_up == self.current_room.item[0]:
+        if picking_up.lower() == self.current_room.item[0].lower():
             self.inventory.insert(0, self.current_room.item[0])
             player_grab = self.current_room.item.copy()
             self.current_room.item.remove(player_grab[0]) 
